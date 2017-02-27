@@ -18,31 +18,38 @@ set $mod Mod4
 # clear in small sizes. However, if you need a lot of unicode glyphs or
 # right-to-left text rendering, you should instead use pango for rendering and
 # chose a FreeType font, such as:
-#font pango:DejaVu Sans Mono 10
-font pango:Inconsolata Bold 11
+# font pango:DejaVu Sans Mono 10
+#font pango:Lexia Readable Regular 9
+#font pango:Inconsolata Regular 10
+font pango:Work Sans Medium 9
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
 # start a terminal
 #bindsym $mod+Return exec i3-sensible-terminal
-bindsym $mod+Return exec lilyterm
+bindsym $mod+Return exec urxvt
+bindsym $mod+Shift+Return exec lilyterm
+
+bindsym $mod+c exec chromium
+bindsym $mod+t exec thunar
+
 
 # kill focused window
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run
+#bindsym $mod+d exec dmenu_run
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
-# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
 bindsym $mod+j focus left
 bindsym $mod+k focus down
 bindsym $mod+l focus up
-bindsym $mod+odiaeresis focus right
+bindsym $mod+semicolon focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -54,7 +61,7 @@ bindsym $mod+Right focus right
 bindsym $mod+Shift+j move left
 bindsym $mod+Shift+k move down
 bindsym $mod+Shift+l move up
-bindsym $mod+Shift+odiaeresis move right
+bindsym $mod+Shift+semicolon move right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -130,7 +137,7 @@ mode "resize" {
         bindsym j resize shrink width 10 px or 10 ppt
         bindsym k resize grow height 10 px or 10 ppt
         bindsym l resize shrink height 10 px or 10 ppt
-        bindsym odiaeresis resize grow width 10 px or 10 ppt
+        bindsym semicolon resize grow width 10 px or 10 ppt
 
         # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
@@ -147,13 +154,45 @@ bindsym $mod+r mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
+#bar {
+#        position       top
+#        status_command i3status
+#}
+
+# Zenburn color scheme.
+# colors
+client.focused              #688060 #688060 #303030 #ffcfaf
+client.focused_inactive     #3f3f3f #3F3F3F #7f9f7f #3f3f3f
+client.unfocused            #3f3f3f #3F3F3F #DCDCCC #3f3f3f
+client.urgent               #dca3a3 #dca3a3 #DCDCCC #3f3f3f
+
+
+# Start i3bar to display a workspace bar (plus the system information i3status
+# finds out, if available)
 bar {
-        position       top
-        status_command i3status
+    position       top
+    status_command i3status
+    colors {
+        background #3f3f3f
+        statusline #dcdccc
+
+        focused_workspace  #93b3a3 #3f3f3f #93b3a3
+        active_workspace   #ffcfaf #3f3f3f #ffcfaf
+        inactive_workspace #636363 #3f3f3f #dcdccc
+        urgent_workspace   #dca3a3 #3f3f3f #dca3a3
+    }
 }
 
-# Enable toggling between US and German keyboard layout
+# Enable toggling between US and German keyboard layout using Alt+Shift
 exec --no-startup-id setxkbmap -option grp:alt_shift_toggle us,de
 
+# Use only the external monitor
+#exec --no-startup-id ~/.screenlayout/dual.sh
+
 # Set background
-exec --no-startup-id feh --bg-scale '/home/max/Pictures/Wallpapers/kitsunenoir/Ben-Newman-1680x1050.jpg'
+#exec --no-startup-id feh --bg-scale '/home/max/Pictures/Wallpapers/kitsunenoir/Ben-Newman-1680x1050.jpg'
+#exec --no-startup-id feh --bg-scale '/home/max/Pictures/wallpapers/joe-van-wetering-1920x1200.jpg'
+
+# Run a script for
+exec --no-startup-id ~/bin/set_up_monitor_i3.sh
+
