@@ -183,6 +183,26 @@ bar {
     }
 }
 
+# Solarized color scheme
+#bar {
+#    position top
+#    status_command i3status
+#    colors {
+#             # solarized
+#             background #073642
+#             statusline #eee8d5
+#             focused_workspace #cb4b16 #cb4b16 #eee8d5
+#             active_workspace #cb4b16 #cb4b16 #eee8d5
+#             inactive_workspace #b58900 #b58900 #eee8d5
+#    }
+#}
+#
+## class                 border  backgr. text    indicator
+#client.focused          #859900 #859900 #fdf6e3 #2e9ef4
+#client.focused_inactive #268bd2 #268bd2 #fdf6e3 #484e50
+#client.unfocused        #333333 #93a1a1 #fdf6e3 #292d2e
+
+
 # Enable toggling between US and German keyboard layout using Alt+Shift
 exec --no-startup-id setxkbmap -option grp:alt_shift_toggle us,de
 
@@ -192,6 +212,7 @@ exec --no-startup-id setxkbmap -option grp:alt_shift_toggle us,de
 # Set background
 #exec --no-startup-id feh --bg-scale '/home/max/Pictures/Wallpapers/kitsunenoir/Ben-Newman-1680x1050.jpg'
 #exec --no-startup-id feh --bg-scale '/home/max/Pictures/wallpapers/joe-van-wetering-1920x1200.jpg'
+#exec --no-startup-id feh --bg-scale '/home/max/Pictures/Wallpapers/kitsunenoir/Ben-Newman-1680x1050.jpg'
 
 # Run a script for
 exec --no-startup-id ~/bin/set_up_monitor_i3.sh
