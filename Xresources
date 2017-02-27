@@ -8,7 +8,7 @@ Xft.lcdfilter: lcddefault
 Xft.rgba: rgb
 
 ! Zenburn color-scheme
-URxvt.background              :#1f1f1f
+URxvt.background              :#3f3f3f
 URxvt.foreground              :#dcdccc
 
 ! black + red
