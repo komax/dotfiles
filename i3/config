@@ -32,8 +32,13 @@ bindsym $mod+Return exec urxvt
 bindsym $mod+Shift+Return exec lilyterm
 
 bindsym $mod+c exec chromium
+bindsym $mod+m exec thunderbird
 bindsym $mod+t exec thunar
 
+# enable back and forth
+workspace_auto_back_and_forth yes
+bindsym $mod+z workspace back_and_forth
+bindsym $mod+Shift+z move container to workspace back_and_forth; workspace back_and_forth
 
 # kill focused window
 bindsym $mod+Shift+q kill
