@@ -28,7 +28,8 @@ floating_modifier $mod
 
 # start a terminal
 #bindsym $mod+Return exec i3-sensible-terminal
-bindsym $mod+Return exec urxvt
+#bindsym $mod+Return exec urxvt
+bindsym $mod+Return exec termite
 bindsym $mod+Shift+Return exec lilyterm
 
 # launch standard applications
@@ -37,7 +38,7 @@ bindsym $mod+m exec thunderbird
 bindsym $mod+t exec thunar
 
 # shortcuts to lock screen, suspend, poweroff
-bindsym $mod+Control+l exec i3lock
+bindsym $mod+Control+l exec i3lock -i Pictures/wallpapers/RainbowTiles_Wallpaper.png -t
 bindsym $mod+Control+s exec systemctl suspend
 bindsym $mod+Control+p exec systemctl poweroff
 bindsym $mod+Control+r exec systemctl reboot
@@ -241,6 +242,11 @@ exec --no-startup-id setxkbmap -option grp:alt_shift_toggle us,de
 #exec --no-startup-id feh --bg-scale '/home/max/Pictures/wallpapers/joe-van-wetering-1920x1200.jpg'
 #exec --no-startup-id feh --bg-scale '/home/max/Pictures/Wallpapers/kitsunenoir/Ben-Newman-1680x1050.jpg'
 
-# Run a script for
-exec --no-startup-id ~/bin/set_up_monitor_i3.sh
+# Set up external monitors
+exec --no-startup-id xrandr --output VGA-0 --off --output LVDS-0 --off --output DP-5 --off --output DP-4 --off --output DP-3 --off --output DP-2 --mode 1920x1080 --pos 1920x0 --rotate normal --output DP-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output DP-0 --off
+
+# Set a random background
+exec --no-startup-id feh --bg-fill --randomize  Pictures/wallpapers/*
+
+#exec --no-startup-id ~/bin/set_up_monitor_i3.sh
 
