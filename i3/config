@@ -21,7 +21,7 @@ set $mod Mod4
 # font pango:DejaVu Sans Mono 10
 #font pango:Lexia Readable Regular 9
 #font pango:Inconsolata Regular 10
-font pango:Work Sans Medium 9
+font pango:Work Sans Medium, FontAwesome 9
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -54,8 +54,8 @@ bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
 
 # Media player controls
-bindsym XF86AudioPlay exec playerctl play
-bindsym XF86AudioPause exec playerctl pause
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioPause exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
@@ -200,6 +200,7 @@ client.urgent               #dca3a3 #dca3a3 #DCDCCC #3f3f3f
 bar {
     position       top
     status_command i3status --config ~/.i3/i3status.conf
+        #tray_output primary
     colors {
         background #3f3f3f
         statusline #dcdccc
@@ -237,16 +238,12 @@ exec --no-startup-id setxkbmap -option grp:alt_shift_toggle us,de
 # Use only the external monitor
 #exec --no-startup-id ~/.screenlayout/dual.sh
 
-# Set background
-#exec --no-startup-id feh --bg-scale '/home/max/Pictures/Wallpapers/kitsunenoir/Ben-Newman-1680x1050.jpg'
-#exec --no-startup-id feh --bg-scale '/home/max/Pictures/wallpapers/joe-van-wetering-1920x1200.jpg'
-#exec --no-startup-id feh --bg-scale '/home/max/Pictures/Wallpapers/kitsunenoir/Ben-Newman-1680x1050.jpg'
-
 # Set up external monitors
 exec --no-startup-id xrandr --output VGA-0 --off --output LVDS-0 --off --output DP-5 --off --output DP-4 --off --output DP-3 --off --output DP-2 --mode 1920x1080 --pos 1920x0 --rotate normal --output DP-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output DP-0 --off
 
-# Set a random background
-exec --no-startup-id feh --bg-fill --randomize  Pictures/wallpapers/*
+# Set a background
+exec --no-startup-id feh --bg-scale '/home/max/Pictures/wallpapers/kitsunenoir/Ben-Newman-1680x1050.jpg'
+#exec --no-startup-id feh --bg-fill --randomize Pictures/wallpapers/*
 
 #exec --no-startup-id ~/bin/set_up_monitor_i3.sh
 
